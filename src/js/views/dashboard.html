@@ -1,0 +1,20 @@
+<div class="oj-hybrid-padding">
+    <h3>Dashboard Content Area</h3>
+    <div>        
+        <div class="oj-flex oj-flex-items-pad">
+            <div class="oj-sm-12 oj-flex-item oj-panel">         
+                <table id="table" summary="Past and upcoming events" aria-label="Past and upcoming events"
+                       data-bind="ojComponent: {component: 'ojTable', 
+                                data: datasource, 
+                                columnsDefault: {sortable: 'enabled'},
+                                columns: [{headerText: 'Date', 
+                                           field: 'heldOn'},
+                                          {headerText: 'Name', 
+                                           field: 'name'},
+                                          {headerText: 'Speaker', 
+                                           field: 'speaker'}],  rootAttributes: {'style':'width: 100%;'}}">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

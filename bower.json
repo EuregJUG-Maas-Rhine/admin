@@ -1,0 +1,8 @@
+{
+  "name": "euregjug-admin-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "oraclejet": "2.1.0",
+    "moment": "2.15.1"
+  }
+}
