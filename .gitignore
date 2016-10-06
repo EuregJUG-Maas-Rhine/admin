@@ -2,7 +2,6 @@ node_modules
 bower_components
 web
 src/js/libs
-themes
 
 hybrid/platforms
 hybrid/www/*
