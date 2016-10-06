@@ -1,7 +1,7 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabledatasource'],
+define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabledatasource', , 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
         function (oj, ko, moment) {
 
             function EventsViewModel() {
@@ -15,7 +15,7 @@ define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabl
                 function parseEvent(response) {
                     return {
                         id: response.id,
-                        heldOn: moment(response.heldOn),
+                        heldOn: oj.IntlConverterUtils.dateToLocalIso(moment(response.heldOn).toDate()),
                         name: response.name,
                         speaker: response.speaker
                     };

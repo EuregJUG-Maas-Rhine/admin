@@ -7,12 +7,17 @@
                             data: datasource, 
                             columnsDefault: {sortable: 'enabled'},
                             columns: [{headerText: oj.Translations.getTranslatedString('heldOn'), 
-                                       field: 'heldOn'},
+                                       field: 'heldOn', template: 'heldOn', style: 'width: 15%'},
                                       {headerText: oj.Translations.getTranslatedString('name'), 
                                        field: 'name'},
                                       {headerText: oj.Translations.getTranslatedString('speaker'), 
                                        field: 'speaker'}],  rootAttributes: {'style':'width: 100%;'}}">
             </table>
+            <script type="text/html" id="heldOn">
+                <td>
+                    <input data-bind="ojComponent: {component: 'ojInputDateTime', value:heldOn, readOnly: true}"/>
+                </td>
+            </script>
         </div>
     </div>
 </div>
