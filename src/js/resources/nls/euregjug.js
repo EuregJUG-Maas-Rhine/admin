@@ -8,7 +8,9 @@ define({
     "locale": "Locale",
     "heldOn": "Held on",
     "speaker": "Speaker",
-    "name": "Name"
+    "name": "Name",
+    "permalink": "Permalink",
+    "readPost": "Read post…"
 },
   "de": true
 });

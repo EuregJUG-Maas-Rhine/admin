@@ -1,18 +1,21 @@
 <div class="oj-hybrid-padding">
-  <h3 data-bind="text: oj.Translations.getTranslatedString('posts')">posts</h3>
+    <h3 data-bind="text: oj.Translations.getTranslatedString('posts')">posts</h3>
     <div class="oj-flex oj-flex-items-pad">
         <div class="oj-sm-12 oj-flex-item oj-panel">       
-   <table id="table" summary="Department List" aria-label="Departments Table"
-           data-bind="ojComponent: {component: 'ojTable', data: pagingDatasource, columnsDefault: {sortable: 'enabled'},
+            <table id="table" summary="Department List" aria-label="Departments Table"
+                   data-bind="ojComponent: {component: 'ojTable', data: pagingDatasource, columnsDefault: {sortable: 'enabled'},
                             columns: [{headerText: oj.Translations.getTranslatedString('publishedOn'), 
                                        field: 'publishedOn'},
                                       {headerText: oj.Translations.getTranslatedString('title'), 
                                        field: 'title'},
                                       {headerText: oj.Translations.getTranslatedString('locale'), 
-                                       field: 'locale'}],  rootAttributes: {'style':'width: 100%;'}}">
-    </table>
-    <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 10}">
+                                       field: 'locale'},
+                                      {headerText: oj.Translations.getTranslatedString('permalink'), renderer: createPermalink, sortable: 'disabled'}
+                                     ], 
+                            rootAttributes: {'style':'width: 100%;'}}">
+            </table>
+            <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 10}">
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </div>

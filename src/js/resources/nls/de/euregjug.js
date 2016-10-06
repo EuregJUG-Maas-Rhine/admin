@@ -7,5 +7,7 @@ define({
     "locale": "Sprache",
     "heldOn": "Am",
     "speaker": "Sprecher_in",
-    "name": "Name"
+    "name": "Name",
+    "permalink": "Permalink",
+    "readPost": "Lesen…"
 });
