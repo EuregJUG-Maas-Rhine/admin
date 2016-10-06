@@ -38,6 +38,14 @@ requirejs.config(
     {
       exports: ['jQuery', '$']
     }
+  },
+
+  config: {
+  ojL10n: {
+      merge: {
+        'ojtranslations/nls/ojtranslations': 'resources/nls/euregjug'
+      }
+    } 
   }
 }
 );
