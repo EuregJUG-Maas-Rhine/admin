@@ -4,7 +4,7 @@
 define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabledatasource'],
         function (oj, ko, moment) {
 
-            function DashboardViewModel() {
+            function EventsViewModel() {
 
 
                 var self = this;
@@ -43,6 +43,6 @@ define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabl
              * each time the view is displayed.  Return an instance of the ViewModel if
              * only one instance of the ViewModel is needed.
              */
-            return new DashboardViewModel();
+            return new EventsViewModel();
         }
 );
