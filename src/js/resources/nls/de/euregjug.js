@@ -1,5 +1,11 @@
 define({
     "events": "Veranstaltungen",
     "posts": "Beiträge",
-    "registrations": "Anmeldungen"
+    "registrations": "Anmeldungen",
+    "publishedOn": "Veröffentlicht am",
+    "title": "Titel",
+    "locale": "Sprache",
+    "heldOn": "Am",
+    "speaker": "Sprecher_in",
+    "name": "Name"
 });

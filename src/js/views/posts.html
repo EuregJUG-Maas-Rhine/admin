@@ -4,11 +4,11 @@
         <div class="oj-sm-12 oj-flex-item oj-panel">       
    <table id="table" summary="Department List" aria-label="Departments Table"
            data-bind="ojComponent: {component: 'ojTable', data: pagingDatasource, columnsDefault: {sortable: 'enabled'},
-                            columns: [{headerText: 'publishedOn', 
+                            columns: [{headerText: oj.Translations.getTranslatedString('publishedOn'), 
                                        field: 'publishedOn'},
-                                      {headerText: 'title', 
+                                      {headerText: oj.Translations.getTranslatedString('title'), 
                                        field: 'title'},
-                                      {headerText: 'locale', 
+                                      {headerText: oj.Translations.getTranslatedString('locale'), 
                                        field: 'locale'}],  rootAttributes: {'style':'width: 100%;'}}">
     </table>
     <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 10}">

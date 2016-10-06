@@ -6,11 +6,11 @@
                    data-bind="ojComponent: {component: 'ojTable', 
                             data: datasource, 
                             columnsDefault: {sortable: 'enabled'},
-                            columns: [{headerText: 'Date', 
+                            columns: [{headerText: oj.Translations.getTranslatedString('heldOn'), 
                                        field: 'heldOn'},
-                                      {headerText: 'Name', 
+                                      {headerText: oj.Translations.getTranslatedString('name'), 
                                        field: 'name'},
-                                      {headerText: 'Speaker', 
+                                      {headerText: oj.Translations.getTranslatedString('speaker'), 
                                        field: 'speaker'}],  rootAttributes: {'style':'width: 100%;'}}">
             </table>
         </div>
