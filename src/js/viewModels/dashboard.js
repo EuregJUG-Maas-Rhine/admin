@@ -9,7 +9,7 @@ define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabl
 
                 var self = this;
 
-                self.serviceURL = 'http://euregjug.cfapps.io/api/events';
+                self.serviceURL = 'https://euregjug.cfapps.io/api/events';
                 self.datasource = ko.observable(); // datasource is an observable so when it is triggered/refreshed, the table component is triggered
 
                 function parseEvent(response) {
