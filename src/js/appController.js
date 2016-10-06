@@ -66,6 +66,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
         this.linkTarget = linkTarget;
       }
       self.footerLinks = ko.observableArray([
+        new footerLink('Sources', 'sources', 'https://github.com/euregJUG-Maas-Rhine/admin'),
         new footerLink('EuregJUG', 'euregjug', 'http://www.euregjug.eu')
       ]);
      }
