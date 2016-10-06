@@ -4,8 +4,7 @@
         <div class="oj-sm-12 oj-flex-item oj-panel">       
             <table id="table" summary="Department List" aria-label="Departments Table"
                    data-bind="ojComponent: {component: 'ojTable', data: pagingDatasource, columnsDefault: {sortable: 'enabled'},
-                            columns: [{headerText: oj.Translations.getTranslatedString('publishedOn'), 
-                                       field: 'publishedOn'},
+                            columns: [{headerText: oj.Translations.getTranslatedString('publishedOn'), field: 'publishedOn', template: 'publishedOn', style: 'width: 5%'},
                                       {headerText: oj.Translations.getTranslatedString('title'), 
                                        field: 'title'},
                                       {headerText: oj.Translations.getTranslatedString('locale'), 
@@ -14,8 +13,12 @@
                                      ], 
                             rootAttributes: {'style':'width: 100%;'}}">
             </table>
-            <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 10}">
-            </div>
-        </div>
+            <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', data: pagingDatasource, pageSize: 10}"></div>
+            <script type="text/html" id="publishedOn">
+                <td>
+                    <input data-bind="ojComponent: {component: 'ojInputDate', value:publishedOn, readOnly: true}"/>
+                </td>
+            </script>
+        </div>            
     </div>
 </div>

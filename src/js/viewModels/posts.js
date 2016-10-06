@@ -5,7 +5,7 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojpagingcontrol', 'ojs/ojpagingtabledatasource', 'ojs/ojcollectiontabledatasource'],
+define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojpagingcontrol', 'ojs/ojpagingtabledatasource', 'ojs/ojcollectiontabledatasource', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
         function (oj, ko, moment) {
 
             function IncidentsViewModel() {
@@ -18,7 +18,7 @@ define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojpagingcontrol'
                     var publishedOn = moment(response.publishedOn);
                     return {
                         id: response.id,
-                        publishedOn: publishedOn,
+                        publishedOn: oj.IntlConverterUtils.dateToLocalIso(publishedOn.toDate()),
                         title: response.title,
                         locale: response.locale,
                         link: 'http://www.euregjug.eu/' + publishedOn.format('YYYY/MM/DD') + '/' + response.slug
