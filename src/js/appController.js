@@ -44,7 +44,6 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
          self.toggleDrawer();
        }
       };
-      
       // Close offcanvas on medium and larger screens
       self.mdScreen.subscribe(function() {oj.OffcanvasUtils.close(self.drawerParams);});
       self.drawerParams = {
