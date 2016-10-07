@@ -26,61 +26,93 @@
 }
 
 .demo-icon-font-24 {
-  font-size: 24px;
+    font-size: 24px;
 }
 
-/* Icons with a suffix "-16" were designed to look best at 16px. */
 .demo-bookmark-icon-16:before {
-  content: "\e606";
+    content: "\e606";
 }
 
 .demo-grid-icon-16:before {
-  content: "\e607";
+    content: "\e607";
 }
 
 .demo-list-icon-16:before {
-  content: "\e608";
+    content: "\e608";
 }
 
 .demo-gear-icon-16:before {
-  content: "\e609";
+    content: "\e609";
 }
 
-/* Icons with a suffix "-24" were designed to look best at 24px. */
+.demo-filter-icon-16:before {
+    content: "\e907";
+}
+
+.demo-share-icon-16:before {
+    content: "\e90a";
+}
+
 .demo-home-icon-24:before {
-  content: "\e600";
+    content: "\e600";
 }
 
 .demo-education-icon-24:before {
-  content: "\e601";
+    content: "\e601";
 }
 
 .demo-catalog-icon-24:before {
-  content: "\e602";
+    content: "\e602";
 }
 
 .demo-palette-icon-24:before {
-  content: "\e603";
+    content: "\e603";
 }
 
 .demo-library-icon-24:before {
-  content: "\e604";
+    content: "\e604";
 }
 
 .demo-chat-icon-24:before {
-  content: "\e605";
+    content: "\e605";
 }
 
-.demo-avatar-icon {
-  width:24px;
-  height:24px;
+.demo-edit-icon-24:before {
+    content: "\e906";
 }
-.demo-avatar-icon:before {
-  content:url("images/avatar_24px.png")
+
+.demo-fire-icon-24:before {
+    content: "\e908";
 }
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  .demo-avatar-icon:before{
-    content:url("images/avatar_24px_2x.png");
-    -webkit-transform:translate(-25%, -25%) scale(0.5);transform:translate(-25%, -25%) scale(0.5)
-  }
+
+.demo-person-icon-24:before {
+    content: "\e909";
+}
+
+.demo-signout-icon-24:before {
+    content: "\e90b";
+}
+
+.demo-info-icon-24:before {
+    content: "\e900";
+}
+
+.demo-copy-icon-24:before {
+    content: "\e901";
+}
+
+.demo-people-icon-24:before {
+    content: "\e902";
+}
+
+.demo-chart-icon-24:before {
+    content: "\e903";
+}
+
+.demo-garbage-icon-24:before {
+    content: "\e904";
+}
+
+.demo-download-icon-24:before {
+    content: "\e905";
 }
