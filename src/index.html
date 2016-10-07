@@ -87,19 +87,7 @@
             </div>
             <div class="oj-flex-bar-end">
               <!-- Responsive Toolbar -->
-              <div data-bind="ojComponent: {component:'ojToolbar'}">
-                <button id="userMenu"
-                  data-bind="ojComponent: {component: 'ojButton', label: userLogin,
-                  display: smScreen() ? 'icons' : 'all',
-                  icons: smScreen() ? {start: 'oj-icon demo-appheader-avatar', end: null} : {end: 'oj-component-icon oj-button-menu-dropdown-icon'},
-                  chroming: 'half', menu: '#menu1'}">
-                </button>
-                <ul id='menu1' data-bind="ojComponent: {component: 'ojMenu'}" style="display:none">
-                  <li id="pref"><a href="#">Preferences</a></li>
-                  <li id="help"><a href="#">Help</a></li>
-                  <li id="about"><a href="#">About</a></li>
-                  <li id="out"><a href="#">Sign Out</a></li>
-                </ul>
+              <div data-bind="ojComponent: {component:'ojToolbar'}">                
               </div>
             </div>
           </div>

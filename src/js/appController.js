@@ -43,7 +43,8 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
        if (data.option === 'selection' && data.value !== self.router.stateId()) {
          self.toggleDrawer();
        }
-      }
+      };
+      
       // Close offcanvas on medium and larger screens
       self.mdScreen.subscribe(function() {oj.OffcanvasUtils.close(self.drawerParams);});
       self.drawerParams = {
@@ -54,14 +55,12 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
       // Called by navigation drawer toggle button and after selection of nav drawer item
       self.toggleDrawer = function() {
         return oj.OffcanvasUtils.toggle(self.drawerParams);
-      }
+      };
 
       // Header
       // Application Name used in Branding Area
       self.appName = ko.observable("EuregJUG Admin App");
-      // User Info used in Global Navigation area
-      self.userLogin = ko.observable("john.hancock@oracle.com");
-
+      
       // Footer
       function footerLink(name, id, linkTarget) {
         this.name = name;
