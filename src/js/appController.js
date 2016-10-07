@@ -59,6 +59,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
       // Header
       // Application Name used in Branding Area
       self.appName = ko.observable("EuregJUG Admin App");
+      self.currentYear = ko.observable(new Date().getFullYear());
       
       // Footer
       function footerLink(name, id, linkTarget) {
