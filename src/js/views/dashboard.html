@@ -1,0 +1,25 @@
+<div class="oj-hybrid-padding">
+    <h3 data-bind="text: oj.Translations.getTranslatedString('dashboard')">dashboard</h3>
+    <div class="oj-flex oj-flex-items-pad">
+        <div class="oj-sm-8 oj-flex-item oj-panel">               
+            <div id='chart-container'>
+                <div id="barChart" data-bind="ojComponent: {
+                        component: 'ojChart', 
+                        type: 'combo', 
+                        orientation: 'horizontal',
+                        stack: 'off',
+                        series: barSeriesValue, 
+                        groups: barGroupsValue, 
+                        animationOnDisplay: 'auto',
+                        animationOnDataChange: 'auto',
+                        hoverBehavior: 'dim',
+                        title: {
+                            text: oj.Translations.getTranslatedString('contentMetrics')
+                        }
+                    }"
+                     style="max-width:640px;width:100%;height:480px;">
+                </div>       
+            </div>
+        </div>
+    </div>
+</div>

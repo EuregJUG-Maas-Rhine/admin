@@ -10,7 +10,11 @@ define({
     "speaker": "Speaker",
     "name": "Name",
     "permalink": "Permalink",
-    "readPost": "Read post…"
+    "readPost": "Read post…",
+    "contentMetrics": "Content metrics",
+    "totalNumberOfRequests": "Number of request",
+    "lastResponseTime": "Last response time (ms)",
+    "dashboard": "Dashboard"
 },
   "de": true
 });

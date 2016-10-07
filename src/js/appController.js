@@ -20,17 +20,20 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarray
        // Router setup
        self.router = oj.Router.rootInstance;
        self.router.configure({
-         'posts': {label: oj.Translations.getTranslatedString('posts'), isDefault: true},
+         'dashboard': {label: oj.Translations.getTranslatedString('dashboard'), isDefault: true},
+         'posts': {label: oj.Translations.getTranslatedString('posts')},
          'events': {label: oj.Translations.getTranslatedString('events')}
        });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
       // Navigation setup
       var navData = [
+      {name: oj.Translations.getTranslatedString('dashboard'), id: 'dashboard',
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
       {name: oj.Translations.getTranslatedString('posts'), id: 'posts',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-library-icon-24'},
       {name: oj.Translations.getTranslatedString('events'), id: 'events',
-       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'}      
+       iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'}      
       ];
       self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
 

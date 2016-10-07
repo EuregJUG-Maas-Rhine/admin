@@ -9,5 +9,9 @@ define({
     "speaker": "Sprecher_in",
     "name": "Name",
     "permalink": "Permalink",
-    "readPost": "Lesen…"
+    "readPost": "Lesen…",
+    "contentMetrics": "Seiteninhalt",
+    "totalNumberOfRequests": "Aufrufe",
+    "lastResponseTime": "Letzte Reaktionszeit (ms)",
+    "dashboard": "Dashboard"
 });
