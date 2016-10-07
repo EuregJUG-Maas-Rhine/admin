@@ -1,7 +1,7 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabledatasource', , 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
+define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabledatasource', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
         function (oj, ko, moment) {
 
             function EventsViewModel() {

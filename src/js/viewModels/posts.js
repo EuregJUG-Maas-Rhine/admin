@@ -1,14 +1,7 @@
-/**
- * Copyright (c) 2014, 2016, Oracle and/or its affiliates.
- * The Universal Permissive License (UPL), Version 1.0
- */
-/*
- * Your incidents ViewModel code goes here
- */
 define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojpagingcontrol', 'ojs/ojpagingtabledatasource', 'ojs/ojcollectiontabledatasource', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
         function (oj, ko, moment) {
 
-            function IncidentsViewModel() {
+            function PostsViewModel() {
                 var self = this;
 
                 self.serviceURL = 'https://euregjug.cfapps.io/api/posts';
@@ -74,6 +67,6 @@ define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojpagingcontrol'
              * each time the view is displayed.  Return an instance of the ViewModel if
              * only one instance of the ViewModel is needed.
              */
-            return new IncidentsViewModel();
+            return new PostsViewModel();
         }
 );
