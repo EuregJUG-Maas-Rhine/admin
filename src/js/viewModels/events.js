@@ -1,8 +1,8 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabledatasource', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
-        function (oj, ko, moment) {
+define(['ojs/ojcore', 'knockout', 'moment', 'appController', 'ojs/ojtable', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata', 'ojs/ojrowexpander', 'ojs/ojcollectiontreedatasource', 'ojs/ojflattenedtreetabledatasource'],
+        function (oj, ko, moment, app) {
 
             function EventsViewModel() {
 
@@ -10,32 +10,67 @@ define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojcollectiontabl
                 var self = this;
 
                 self.serviceURL = 'https://euregjug.cfapps.io/api/events';
-                self.datasource = ko.observable(); // datasource is an observable so when it is triggered/refreshed, the table component is triggered
+                self.datasource = ko.observable();
 
                 function parseEvent(response) {
                     return {
                         id: response.id,
                         heldOn: oj.IntlConverterUtils.dateToLocalIso(moment(response.heldOn).toDate()),
                         name: response.name,
-                        speaker: response.speaker
+                        speaker: response.speaker === undefined ? '' : response.speaker,
+                        needsRegistration: response.needsRegistration
                     };
                 }
                 ;
-                var event = oj.Model.extend({
+                var Event = oj.Model.extend({
                     parse: parseEvent
                 });
-
-
                 var EventCollection = oj.Collection.extend({
                     url: self.serviceURL,
-                    model: new event(),
+                    model: new Event(),
                     comparator: 'heldOn',
                     sortDirection: -1,
                     parse: function (response) {
                         return response['content'];
                     }
                 });
-                self.datasource(new oj.CollectionTableDataSource(new EventCollection()));
+
+                function parseRegistration(response) {                    
+                    return {
+                        id: response.id,
+                        heldOn: null,
+                        name: response.name + (response.firstName !== undefined ? ', ' + response.firstName : ''),
+                        speaker: '',
+                        registration: true
+                    };
+                }
+                ;
+                var Registration = oj.Model.extend({
+                    parse: parseRegistration
+                });
+
+                var RegistrationCollection = oj.Collection.extend({
+                    model: new Registration(),
+                    oauth: app.oauth,
+                    comparator: 'id',
+                    sortDirection: -1
+                });
+
+                function parseMetadata(model) {
+                    var retObj = {};
+                    retObj['key'] = (model.attributes.registration ? 'r-' : 'e-') + model.attributes.id;
+                    retObj['leaf'] = !model.attributes.needsRegistration || model.attributes.registration || !app.loggedIn();
+                    retObj['depth'] = model.attributes.registration ? 1 : 0;                                        
+                    return retObj;
+                }
+                function childCollectionCallback(col, parent) {
+                    var rv = new RegistrationCollection([], {url: self.serviceURL + '/' + parent.id + '/registrations'});                
+                    return rv;
+                };
+
+                self.datasource(new oj.FlattenedTreeTableDataSource(
+                        new oj.FlattenedTreeDataSource(
+                                new oj.CollectionTreeDataSource({root: new EventCollection(), parseMetadata: parseMetadata, childCollectionCallback: childCollectionCallback}))));
             }
 
             /*

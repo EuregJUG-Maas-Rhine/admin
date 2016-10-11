@@ -5,6 +5,7 @@
             <table id="table" summary="Past and upcoming events" aria-label="Past and upcoming events"
                    data-bind="ojComponent: {component: 'ojTable', 
                             data: datasource, 
+                             rowTemplate: 'row_template', 
                             columnsDefault: {sortable: 'enabled'},
                             columns: [{headerText: oj.Translations.getTranslatedString('heldOn'), 
                                        field: 'heldOn', template: 'heldOn', style: 'width: 15%'},
@@ -13,11 +14,27 @@
                                       {headerText: oj.Translations.getTranslatedString('speaker'), 
                                        field: 'speaker'}],  rootAttributes: {'style':'width: 100%;'}}">
             </table>
-            <script type="text/html" id="heldOn">
-                <td>
-                    <input data-bind="ojComponent: {component: 'ojInputDateTime', value:heldOn, readOnly: true}"/>
-                </td>
-            </script>
+            <script type="text/html" id="row_template">
+                <tr>
+                    <td>
+                        <div data-bind="ojComponent: {component: 'ojRowExpander',  context: $rowContext}"></div>
+                        <!-- ko if: heldOn !== null -->
+                        <input data-bind="ojComponent: {component: 'ojInputDateTime', value:heldOn, readOnly: true}"/>
+                        <!-- /ko -->
+                    </td>
+                    <td>
+                        <span data-bind="text: name"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: speaker"></span>
+                    </td>
+                </tr>
+                </script>
+                <script type="text/html" id="heldOn">
+                    <td>
+                        <input data-bind="ojComponent: {component: 'ojInputDateTime', value:heldOn, readOnly: true}"/>
+                    </td>
+                    </script>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
