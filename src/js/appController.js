@@ -5,7 +5,7 @@
 /*
  * Your application specific code will go here
  */
-define(['ojs/ojcore', 'knockout', 'jso', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarraytabledatasource',
+define(['ojs/ojcore', 'knockout', 'jso', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojarraytabledatasource', 'ojs/ojmodel',
     'ojs/ojoffcanvas'],
         function (oj, ko, JSO) {
             function ControllerViewModel() {
@@ -68,27 +68,25 @@ define(['ojs/ojcore', 'knockout', 'jso', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/
                 self.toggleDrawer = function () {
                     return oj.OffcanvasUtils.toggle(self.drawerParams);
                 };
-
+                
                 // Header
                 // Application Name used in Branding Area
                 self.appName = ko.observable("EuregJUG Admin App");
                 self.currentYear = ko.observable(new Date().getFullYear());
              
-                var token = self.jso.checkToken();
+                var token = self.jso.checkToken();                
                 self.loggedIn = ko.observable(token !== null);
                 self.labelButtonLogin = ko.pureComputed(function () {
                     return oj.Translations.getTranslatedString(self.loggedIn() ? 'logout' : 'login');
                 });
+                self.oauth = new oj.OAuth('Authorization', token);
                 self.login = function () {
                     if (self.loggedIn()) {
+                        self.oauth.setAccessTokenResponse({});
                         self.jso.wipeTokens();
                         self.loggedIn(false);
-                    } else {
-                        
-                        self.jso.getToken(
-                                function (token) {},
-                                {}
-                        );
+                    } else {                        
+                        self.jso.getToken(function (token) {}, {});
                         self.loggedIn(true);
                     }
                 };
