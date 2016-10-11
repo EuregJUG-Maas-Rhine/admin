@@ -13,5 +13,7 @@ define({
     "contentMetrics": "Seiteninhalt",
     "totalNumberOfRequests": "Aufrufe",
     "lastResponseTime": "Letzte Reaktionszeit (ms)",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "logout": "Logout"
 });

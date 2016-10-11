@@ -14,7 +14,9 @@ define({
     "contentMetrics": "Content metrics",
     "totalNumberOfRequests": "Number of request",
     "lastResponseTime": "Last response time (ms)",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "logout": "Logout"
 },
   "de": true
 });
