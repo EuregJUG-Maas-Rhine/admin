@@ -14,7 +14,7 @@ define(['ojs/ojcore', 'knockout', 'jso', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/
                 // Check OAuth Token
                 var location = window.location;
                 self.jso = new JSO({
-                    providerID: "google",
+                    providerID: "euregjug",
                     client_id: "euregjug-admin-app",
                     authorization: "https://euregjug.cfapps.io/oauth/authorize",
                     redirect_uri: location.protocol + '//' + location.host + location.pathname,
