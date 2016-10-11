@@ -115,6 +115,14 @@ module.exports = function(grunt)
       
       src: '*.js'
     },
+    
+    jso: {
+        options: {
+            srcPrefix: "bower_components/jso/build",
+            destPrefix: "src/js/libs/jso"
+        },
+        src: '*.js'
+    },            
 
     // place in the same directory as jet's demo app
     thirdParty:
