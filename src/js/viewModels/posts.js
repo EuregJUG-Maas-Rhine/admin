@@ -1,5 +1,5 @@
-define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojpagingcontrol', 'ojs/ojpagingtabledatasource', 'ojs/ojcollectiontabledatasource', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
-        function (oj, ko, moment) {
+define(['ojs/ojcore', 'knockout', 'moment', 'springCollections', 'ojs/ojtable', 'ojs/ojpagingcontrol', 'ojs/ojpagingtabledatasource', 'ojs/ojcollectiontabledatasource', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata'],
+        function (oj, ko, moment, springCollections) {
 
             function PostsViewModel() {
                 var self = this;
@@ -31,32 +31,14 @@ define(['ojs/ojcore', 'knockout', 'moment', 'ojs/ojtable', 'ojs/ojpagingcontrol'
                 };
 
                 var PostCollection = oj.Collection.extend({
-                    customURL: function (operation, col, options) {
-                        var rv = null;
-                        if (operation === 'read') {
-                            rv = self.serviceURL
-                                    + '?size=' + options.fetchSize
-                                    + '&page=' + (options.startIndex / options.fetchSize)
-                                    + '&sort=' + options.sort + ',' + options.sortDir;
-                        }
-                        return rv;
-                    },
-                    customPagingOptions: function (response) {
-                        return {
-                            totalResults: response['totalElements'],
-                            limit: response['size'],
-                            count: response['numberOfElements'],
-                            hasMore: !response['last'],
-                            offset: response['number'] * response['size']
-                        };
-                    },
+                    url: self.serviceURL,
+                    customURL: springCollections.mapCollectionURLToDataURL,
+                    customPagingOptions: springCollections.mapCollectionsToDataArguments,
+                    parse: springCollections.extractContent,
                     fetchSize: 10,
                     model: new event(),
                     comparator: 'publishedOn',
-                    sortDirection: -1,
-                    parse: function (response) {
-                        return response['content'];
-                    }
+                    sortDirection: -1,                    
                 });
 
                 self.pagingDatasource = new oj.PagingTableDataSource(new oj.CollectionTableDataSource(new PostCollection()));
