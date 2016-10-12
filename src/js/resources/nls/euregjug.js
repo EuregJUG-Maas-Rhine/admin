@@ -8,6 +8,8 @@ define({
     "heldOn": "Held on",
     "speaker": "Speaker",
     "name": "Name",
+    "firstName": "First name",
+    "email": "E-Mail",
     "permalink": "Permalink",
     "readPost": "Read post…",
     "contentMetrics": "Content metrics",

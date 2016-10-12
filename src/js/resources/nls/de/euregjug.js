@@ -7,6 +7,8 @@ define({
     "heldOn": "Am",
     "speaker": "Sprecher_in",
     "name": "Name",
+    "firstName": "Vorname",
+    "email": "E-Mail",
     "permalink": "Permalink",
     "readPost": "Lesen…",
     "contentMetrics": "Seiteninhalt",
