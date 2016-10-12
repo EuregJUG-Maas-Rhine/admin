@@ -1,40 +1,73 @@
 <div class="oj-hybrid-padding">
-    <h3 data-bind="text: oj.Translations.getTranslatedString('events')">events</h3>
+    <h3 data-bind="text: oj.Translations.getTranslatedString('events')">events</h3>    
     <div class="oj-flex oj-flex-items-pad">
         <div class="oj-sm-12 oj-flex-item oj-panel">         
-            <table id="table" summary="Past and upcoming events" aria-label="Past and upcoming events"
-                   data-bind="ojComponent: {component: 'ojTable', 
-                            data: datasource, 
-                             rowTemplate: 'row_template', 
-                            columnsDefault: {sortable: 'enabled'},
-                            columns: [{headerText: oj.Translations.getTranslatedString('heldOn'), 
-                                       field: 'heldOn', template: 'heldOn', style: 'width: 15%'},
-                                      {headerText: oj.Translations.getTranslatedString('name'), 
-                                       field: 'name'},
-                                      {headerText: oj.Translations.getTranslatedString('speaker'), 
-                                       field: 'speaker'}],  rootAttributes: {'style':'width: 100%;'}}">
-            </table>
-            <script type="text/html" id="row_template">
-                <tr>
-                    <td>
-                        <div data-bind="ojComponent: {component: 'ojRowExpander',  context: $rowContext}"></div>
-                        <!-- ko if: heldOn !== null -->
-                        <input data-bind="ojComponent: {component: 'ojInputDateTime', value:heldOn, readOnly: true}"/>
-                        <!-- /ko -->
-                    </td>
-                    <td>
-                        <span data-bind="text: name"></span>
-                    </td>
-                    <td>
-                        <span data-bind="text: speaker"></span>
-                    </td>
-                </tr>
-                </script>
-                <script type="text/html" id="heldOn">
-                    <td>
-                        <input data-bind="ojComponent: {component: 'ojInputDateTime', value:heldOn, readOnly: true}"/>
-                    </td>
-                    </script>
+
+            <div id="listviewContainer" class="demo-container">
+                <div id="page1" class="demo-page">
+                    <ul id="listview" aria-label="List of events"  
+                        data-bind="ojComponent: {
+                    component: 'ojListView', 
+                         data: datasource, 
+                         item: {template: 'note_template'}, 
+                selectionMode: 'single', 
+               rootAttributes: {
+                                    style: 'width:100%;height:100%;max-height:63vh;overflow-x:hidden;'
+                                },
+                 scrollPolicy: 'loadMoreOnScroll', 
+          scrollPolicyOptions: {fetchSize: 10},
+                 optionChange: gotoContent
+                }">
+                    </ul>
+                </div>
+
+                <div id="page2" class="demo-page hide ">
+                    <button id="buttonIcon2"  
+                            data-bind="click: gotoList, ojComponent: {
+                                component:'ojButton', 
+                                    icons: {start:'oj-fwk-icon-caret-start oj-fwk-icon'}, 
+                                    label: 'Back'}">
+                    </button>
+                    <div class="oj-panel demo-panel">
+                        <h4 class="oj-header-border">
+                            <span data-bind="text: registrationsTitle"></span>
+                        </h4>                        
+                        <table id="table" summary="Registrations" aria-label="Registrations"
+                                data-bind="ojComponent: {component: 'ojTable', 
+                                          data: registrationDatasource,   
+                                columnsDefault: {sortable: 'enabled'},
+                                       columns: [{headerText: oj.Translations.getTranslatedString('name'), field: 'name'},
+                                                 {headerText: oj.Translations.getTranslatedString('firstName'), field: 'firstName'},
+                                                 {headerText: oj.Translations.getTranslatedString('email'), field: 'email'}],  
+                                rootAttributes: {'style':'width: 100%;'}}">
+                        </table>
+                    </div>
                 </div>
             </div>
+
+            <div id="note_template" class="template">
+                <li data-bind="attr: {id: 'item'+id}">
+                    <div class="oj-flex-bar">
+                        <div class="oj-flex-bar-middle">
+                            <div>
+                                <h4>
+                                    <strong data-bind="text: title"></strong>
+                                </h4>
+                                <span data-bind="text: description"></span>
+                                <br />
+                                <input style="font-style: italic;" data-bind="ojComponent: {component: 'ojInputDateTime', value:heldOn, readOnly: true}"/>
+                            </div>
+                            <div class="oj-flex-bar-end" >
+                                <div style="display: flex; flex-direction: column;justify-content: center;">
+                                    <div>
+                                        <div role="presentation" class="oj-flex-item oj-fwk-icon oj-listview-drill-icon"></div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </li>
+            </div>      
         </div>
+    </div>
+</div>

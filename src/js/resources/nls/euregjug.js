@@ -1,8 +1,7 @@
 define({
   "root": {
     "events": "Events",
-    "posts": "Posts",
-    "registrations": "Registrations",
+    "posts": "Posts",    
     "publishedOn": "Published on",
     "title": "Title",
     "locale": "Locale",
@@ -16,7 +15,9 @@ define({
     "lastResponseTime": "Last response time (ms)",
     "dashboard": "Dashboard",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "registrationsTitle": "{num} registrations for \"{event}\"",
+    "pleaseLogin": "Please login before using that function!"
 },
   "de": true
 });

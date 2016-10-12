@@ -1,7 +1,6 @@
 define({
     "events": "Veranstaltungen",
-    "posts": "Beiträge",
-    "registrations": "Anmeldungen",
+    "posts": "Beiträge",    
     "publishedOn": "Veröffentlicht am",
     "title": "Titel",
     "locale": "Sprache",
@@ -15,5 +14,7 @@ define({
     "lastResponseTime": "Letzte Reaktionszeit (ms)",
     "dashboard": "Dashboard",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "registrationsTitle": "{num} Anmeldungen für \"{event}\"",
+    "pleaseLogin": "Für diese Funktion musst Du angemeldet sein!"
 });
