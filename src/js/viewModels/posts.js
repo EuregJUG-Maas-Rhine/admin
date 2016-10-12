@@ -18,7 +18,7 @@ define(['ojs/ojcore', 'knockout', 'moment', 'springCollections', 'ojs/ojtable', 
                     };
                 }
                 ;
-                var event = oj.Model.extend({
+                var Post = oj.Model.extend({
                     parse: parsePost
                 });
 
@@ -36,7 +36,7 @@ define(['ojs/ojcore', 'knockout', 'moment', 'springCollections', 'ojs/ojtable', 
                     customPagingOptions: springCollections.mapCollectionsToDataArguments,
                     parse: springCollections.extractContent,
                     fetchSize: 10,
-                    model: new event(),
+                    model: new Post(),
                     comparator: 'publishedOn',
                     sortDirection: -1,                    
                 });
