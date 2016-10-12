@@ -116,3 +116,7 @@
 .demo-download-icon-24:before {
     content: "\e905";
 }
+
+.template {
+    display:none;
+}
