@@ -22,7 +22,7 @@ define(['ojs/ojcore', 'knockout', 'moment', 'springCollections', 'ojs/ojtable', 
                     parse: parsePost
                 });
 
-                self.createPermalink = function (context) {                    
+                self.createPermalink = function (context) {
                     var link = $(document.createElement('a'));
                     link.attr('href', context.row.link);
                     link.attr('target', 'blank');
@@ -38,7 +38,7 @@ define(['ojs/ojcore', 'knockout', 'moment', 'springCollections', 'ojs/ojtable', 
                     fetchSize: 10,
                     model: new Post(),
                     comparator: 'publishedOn',
-                    sortDirection: -1,                    
+                    sortDirection: -1
                 });
 
                 self.pagingDatasource = new oj.PagingTableDataSource(new oj.CollectionTableDataSource(new PostCollection()));
