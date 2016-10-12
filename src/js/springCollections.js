@@ -51,8 +51,8 @@ define([], function () {
                         + '?size=' + options.fetchSize
                         + '&page=' + (options.startIndex / options.fetchSize)
                         + '&sort=' + options.sort + ',' + options.sortDir;
-            }
-            return rv;
+            }            
+            return {url: rv};
         };
         
         /**
